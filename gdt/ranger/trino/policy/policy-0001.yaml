@@ -1,0 +1,86 @@
+name: test policy
+id: 100
+description: updated description - #2
+isEnabled: true
+isAuditEnabled: true
+isDenyAllElse: false
+policyType: 0
+policyPriority: 0
+service: dev_hive-20231001-155221-508302
+serviceType: hive
+version: 3
+createTime: 1696200754326
+updateTime: 1696200754824
+createdBy: Admin
+updatedBy: Admin
+guid: 754ac36c-7881-4112-8f50-f564644b83a4
+resourceSignature: b05214c3a074aa10211441526defebdc6c72abdd94dc35fcde81f47b32e94d81
+
+resources:
+  database:
+    isExcludes: false
+    isRecursive: false
+    values:
+      - test_db
+  table:
+    isExcludes: false
+    isRecursive: false
+    values:
+      - test_tbl
+  column:
+    isExcludes: false
+    isRecursive: false
+    values:
+      - '*'
+
+policyItems:
+  - accesses:
+      - type: create
+        isAllowed: true
+      - type: alter
+        isAllowed: true
+      - type: select
+        isAllowed: true
+    delegateAdmin: false
+    users:
+      - admin
+
+denyPolicyItems:
+  - accesses:
+      - type: drop
+        isAllowed: true
+    delegateAdmin: false
+    users:
+      - admin
+
+additionalResources:
+  - database:
+      isExcludes: false
+      isRecursive: false
+      values:
+        - test_db1
+    table:
+      isExcludes: false
+      isRecursive: false
+      values:
+        - test_tbl1
+    column:
+      isExcludes: false
+      isRecursive: false
+      values:
+        - '*'
+  - database:
+      isExcludes: false
+      isRecursive: false
+      values:
+        - test_db2
+    table:
+      isExcludes: false
+      isRecursive: false
+      values:
+        - test_tbl2
+    column:
+      isExcludes: false
+      isRecursive: false
+      values:
+        - '*'
